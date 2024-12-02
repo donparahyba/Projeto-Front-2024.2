@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Lista de Tarefas</h1>
+        <div id="mensagem-erro" class="alert alert-danger d-none" role="alert"></div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title">Cadastrar Tarefa</h3>
+                <form id="form-tarefa">
+                    <div class="mb-3">
+                        <input type="text" id="titulo-tarefa" class="form-control" placeholder="Título da tarefa..." required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" id="descricao-tarefa" class="form-control" placeholder="Descrição da tarefa..." required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="date" id="data-limite" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <select id="status-tarefa" class="form-select" required>
+                            <option value="" disabled selected>Selecione o status...</option>
+                            <option value="pendente">Pendente</option>
+                            <option value="em-andamento">Em andamento</option>
+                            <option value="pronto">Pronto</option>
+                        </select>
+                    </div>
+                    <button type="button" id="adicionar" class="btn btn-success w-100">Adicionar</button>
+                </form>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title">Filtrar Tarefas</h3>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <select id="filtro-status" class="form-select">
+                            <option value="" disabled selected>Filtrar por status...</option>
+                            <option value="pendente">Pendente</option>
+                            <option value="em-andamento">Em andamento</option>
+                            <option value="pronto">Pronto</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="date" id="filtro-data" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <button id="filtrar" class="btn btn-primary w-100">Filtrar</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button id="desfiltrar" class="btn btn-secondary w-100">Desfiltrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul id="tarefas-lista" class="list-group"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
